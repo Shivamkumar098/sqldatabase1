@@ -1,0 +1,68 @@
+CREATE DATABASE `sqldatabase`;
+USE `sqldatabase`;
+CREATE TABLE user(
+    id INT primary key NOT NULL,
+    media_id INT NOT NULL,
+    name VARCHAR(45)
+);
+INSERT INTO user(name)VALUES("Shivam")("kumar")("Sachin")("rishu");
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE project_has_user2(
+    project_id INT primary key NOT NULL,
+    user_id INT NOT NULL,
+    manager char(20)
+);
+CREATE TABLE project(
+    id INT primary key AUTO_INCREMENT,
+    `name` VARCHAR(45)
+);
+INSERT INTO user(`name`)VALUES("Microsoft")("prodapt")("google")("Amazon");
+DROP TABLE IF EXISTS project;
+CREATE TABLE media(
+    id INT primary key NOT NULL,
+    user_id INT,
+    `path` VARCHAR(70),
+    filetype VARCHAR(20),
+    filesize DECIMAL(65,2)
+
+);
+CREATE TABLE bug(
+    id INT primary key,
+    project_id INT,
+    `name` VARCHAR(45)
+);
+INSERT INTO user(`name`)VALUES("java")("python")("C")("SQL");
+DROP TABLE IF EXISTS bug;
+
+CREATE TABLE comment (
+    id INT primary key,
+    bug_project_id INT,
+    bug_id INT,
+    text TEXT
+);
+CREATE TABLE bug_has_media(
+    bug_id INT,
+    bug_project_id INT,
+    media_id INT
+
+);
+CREATE TABLE comment_has_media(
+    comment_id INT,
+    comment_bug_project_id INT,
+    comment_bug_id INT,
+    media_id INT
+);
+------------------------------------------insert the data in the tables
+
+INSERT into user VALUES(1,2,"Shivam");
+INSERT into user VALUES(2,3,"pankaj");
+INSERT into user VALUES(3,4,"rishu");
+INSERT into user VALUES(4,5,"sachin");
+INSERT INTO project_has_user VALUES(1,3,"Jhaver");
+INSERT INTO project_has_user VALUES(2,4,"SKS");
+INSERT INTO project_has_user VALUES(3,4,"RSK");
+INSERT INTO project VALUES(4,"SS");
+INSERT INTO project VALUES(4,"SKSK");
+INSERT INTO project VALUES(4,"RR");
+INSERT INTO project VALUES(4,"KUMARA");
